@@ -1,0 +1,52 @@
+[build]
+  publish = "."
+  command = ""
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Redirect raíz al index
+[[redirects]]
+  from = "/"
+  to   = "/index.html"
+  status = 200
+
+# SPA fallback: cualquier ruta desconocida → index
+[[redirects]]
+  from = "/*"
+  to   = "/index.html"
+  status = 200
+
+# Headers de seguridad y caché
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Deploy contexts
+[context.production]
+  command = ""
+
+[context.deploy-preview]
+  command = ""
+
+[context.branch-deploy]
+  command = ""

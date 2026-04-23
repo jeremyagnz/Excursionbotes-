@@ -1,29 +1,81 @@
-# Excursionbotes-
+# ⛵ ExcursionBotes
 
-Descripción breve del proyecto.
+Página informativa y de reservas para **Excursiones en Bote** — diseñada con UI/UX moderno en tono Aqua.
 
-## 🧭 Objetivo
+[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_NETLIFY_SITE_ID/deploy-status)](https://app.netlify.com/sites/excursionbotes/deploys)
 
-Explica qué problema resuelve o qué ofrece este repositorio.
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jeremyagnz/Excursionbotes-)
 
-## 🚀 Empezar
+---
 
-1. Clona el repositorio:
-   
-   ```bash
-   git clone https://github.com/jeremyagnz/Excursionbotes-.git
-   cd Excursionbotes-
-   ```
+## 🎯 ¿Qué incluye?
 
-2. (Opcional) Agrega instrucciones de instalación si aplica.
+- 🎠 **Carrusel de fotos** interactivo con swipe táctil y autoplay
+- 📊 **Barra de estadísticas** animada (clientes, años, rutas, satisfacción)
+- 🧭 **Sección Nosotros** con características y valores de la empresa
+- 🗺️ **6 Planes / Paquetes**: Básico, Aventura Marina, Premium, Atardecer, Familiar y Corporativo
+- 💬 **Testimonios** de clientes reales
+- 📬 **Formulario de reserva** completo
+- 🌐 **Redes sociales**: Instagram, Facebook, WhatsApp, TikTok, YouTube
+- 💬 **Botón flotante de WhatsApp**
+- 📱 **100% Responsive** (móvil, tablet, escritorio)
+- 🎨 **Tema Aqua** (`#00C9C8`) con animaciones suaves
+
+---
+
+## 🚀 Despliegue en Netlify
+
+### Opción A — Un clic (recomendado)
+
+Presiona el botón **"Deploy to Netlify"** de arriba. Netlify clonará el repo y lo publicará automáticamente.
+
+### Opción B — Manual
+
+1. Entra a [app.netlify.com](https://app.netlify.com) y selecciona **"Add new site → Import an existing project"**.
+2. Conecta tu cuenta de GitHub y elige el repo `jeremyagnz/Excursionbotes-`.
+3. Configura:
+   | Campo | Valor |
+   |-------|-------|
+   | **Branch to deploy** | `main` |
+   | **Base directory** | *(vacío)* |
+   | **Build command** | *(vacío)* |
+   | **Publish directory** | `.` |
+4. Haz clic en **"Deploy site"**.
+
+El archivo `netlify.toml` ya incluye toda la configuración necesaria (redirects, headers de seguridad, caché).
+
+### Ver el Deploy Preview
+
+Cada Pull Request genera automáticamente una **URL de preview** única:
+
+```
+https://deploy-preview-<PR_NUMBER>--excursionbotes.netlify.app
+```
+
+Netlify publica un comentario con el enlace directo en cada PR. 🎉
+
+---
 
 ## 🧱 Estructura del proyecto
 
-Describe carpetas/archivos principales.
+```
+Excursionbotes-/
+├── index.html      # Página principal (todo en un archivo)
+├── netlify.toml    # Configuración de Netlify
+└── README.md
+```
 
-## ✅ Uso
+## 🌐 URL en producción
 
-Incluye ejemplos de ejecución o capturas.
+Una vez desplegado, tu sitio estará disponible en:
+
+```
+https://excursionbotes.netlify.app
+```
+
+> Puedes cambiar el nombre del sitio en **Site settings → General → Site name** dentro de Netlify.
+
+---
 
 ## 🤝 Contribuir
 
@@ -31,4 +83,4 @@ Las contribuciones son bienvenidas. Abre un issue o un pull request.
 
 ## 📝 Licencia
 
-Indica la licencia (por ejemplo MIT). Si aún no hay, puedes agregar un archivo `LICENSE`.
+MIT — libre de usar y modificar.
