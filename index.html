@@ -1306,15 +1306,22 @@
       border: 2px solid transparent;
       border-radius: 50%;
       cursor: pointer;
-      font-size: 1.35rem;
-      width: 36px; height: 36px;
+      width: 38px; height: 38px;
       display: flex; align-items: center; justify-content: center;
       padding: 0;
-      transition: transform var(--transition), border-color var(--transition);
-      line-height: 1;
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
     }
 
-    .lang-btn:hover { transform: scale(1.2); }
+    .lang-btn img {
+      width: 28px;
+      height: auto;
+      border-radius: 3px;
+      display: block;
+      pointer-events: none;
+    }
+
+    .lang-btn:hover { transform: scale(1.18); }
 
     .lang-btn.active {
       border-color: var(--aqua);
@@ -1345,7 +1352,8 @@
       .nav-links.open a { font-size: 1.3rem; }
       .hamburger { display: flex; z-index: 1000; }
       .lang-switcher { z-index: 1000; }
-      .lang-btn { font-size: 1.15rem; width: 30px; height: 30px; }
+      .lang-btn { width: 30px; height: 30px; }
+      .lang-btn img { width: 22px; }
       .carousel-slide { height: 320px; }
       .stats-bar { gap: 2rem; }
       .form-row { grid-template-columns: 1fr; }
@@ -1380,9 +1388,15 @@
   </ul>
 
   <div class="lang-switcher" id="langSwitcher" aria-label="Seleccionar idioma">
-    <button class="lang-btn active" data-lang="es" title="Español" aria-label="Español">🇪🇸</button>
-    <button class="lang-btn" data-lang="en" title="English" aria-label="English">🇺🇸</button>
-    <button class="lang-btn" data-lang="fr" title="Français" aria-label="Français">🇫🇷</button>
+    <button class="lang-btn active" data-lang="es" title="Español" aria-label="Español">
+      <img src="https://flagcdn.com/w40/es.png" width="26" height="18" alt="Español" />
+    </button>
+    <button class="lang-btn" data-lang="en" title="English" aria-label="English">
+      <img src="https://flagcdn.com/w40/us.png" width="26" height="18" alt="English" />
+    </button>
+    <button class="lang-btn" data-lang="fr" title="Français" aria-label="Français">
+      <img src="https://flagcdn.com/w40/fr.png" width="26" height="18" alt="Français" />
+    </button>
   </div>
 
   <button class="hamburger" id="hamburger" data-i18n-aria="aria_menu" aria-label="Menú">
