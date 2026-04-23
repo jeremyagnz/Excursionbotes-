@@ -2538,22 +2538,15 @@
     const t = translations[lang];
     if (!t) return;
     document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.dataset.i18n;
-      if (t[key] !== undefined) el.textContent = t[key];
-    });
-    document.querySelectorAll('[data-i18n-html]').forEach(el => {
-      const key = el.dataset.i18nHtml;
-      if (t[key] !== undefined) el.innerHTML = t[key];
-    });
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-      const key = el.dataset.i18nPlaceholder;
-      if (t[key] !== undefined) el.placeholder = t[key];
-    });
-    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
-      const key = el.dataset.i18nAria;
-      if (t[key] !== undefined) el.setAttribute('aria-label', t[key]);
-    });
+    const applyAttr = (attr, setter) =>
+      document.querySelectorAll('[' + attr + ']').forEach(el => {
+        const val = t[el.getAttribute(attr)];
+        if (val !== undefined) setter(el, val);
+      });
+    applyAttr('data-i18n',             (el, v) => { el.textContent = v; });
+    applyAttr('data-i18n-html',        (el, v) => { el.innerHTML   = v; });
+    applyAttr('data-i18n-placeholder', (el, v) => { el.placeholder = v; });
+    applyAttr('data-i18n-aria',        (el, v) => { el.setAttribute('aria-label', v); });
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
@@ -2566,8 +2559,8 @@
     if (btn) applyTranslations(btn.dataset.lang);
   });
 
-  /* Apply saved language on load */
-  if (currentLang !== 'es') applyTranslations(currentLang);
+  /* Apply saved/default language on load */
+  applyTranslations(currentLang);
 </script>
 
 </body>
