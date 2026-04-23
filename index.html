@@ -1294,37 +1294,87 @@
     }
 
     /* ─── Language Switcher ───────────────────────────────────── */
-    .lang-switcher {
-      display: flex;
-      gap: .3rem;
-      align-items: center;
+    /* ─── Language Dropdown ───────────────────────────────────── */
+    .lang-dropdown {
+      position: relative;
       margin-right: .6rem;
+      z-index: 999;
     }
 
-    .lang-btn {
-      background: none;
-      border: none;
-      border-radius: 6px;
+    .lang-trigger {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 8px;
       cursor: pointer;
-      width: 38px; height: 38px;
-      display: flex; align-items: center; justify-content: center;
-      padding: 4px;
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      padding: 5px 8px;
+      transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+      color: #fff;
+    }
+    .lang-trigger:hover,
+    .lang-dropdown.open .lang-trigger {
+      background: rgba(0,201,200,.15);
+      border-color: var(--aqua);
+      box-shadow: 0 0 10px 2px rgba(0,201,200,.4);
     }
 
-    .lang-btn img {
-      width: 28px;
+    .lang-trigger img {
+      width: 24px;
       height: auto;
       border-radius: 3px;
       display: block;
       pointer-events: none;
     }
 
-    .lang-btn:hover { transform: scale(1.18); }
+    .lang-trigger .lang-chevron {
+      font-size: .6rem;
+      opacity: .75;
+      transition: transform var(--transition);
+      line-height: 1;
+    }
+    .lang-dropdown.open .lang-chevron { transform: rotate(180deg); }
 
-    .lang-btn.active {
-      background: rgba(0,201,200,.15);
-      box-shadow: 0 0 12px 4px rgba(0,201,200,.55);
+    .lang-panel {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(0,0,0,.45);
+      min-width: 110px;
+    }
+    .lang-dropdown.open .lang-panel { display: block; }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: 8px 14px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      color: rgba(255,255,255,.82);
+      font-size: .82rem;
+      font-family: inherit;
+      transition: background var(--transition), color var(--transition);
+    }
+    .lang-option:hover { background: rgba(255,255,255,.08); color: #fff; }
+    .lang-option.active {
+      background: rgba(0,201,200,.18);
+      color: var(--aqua);
+    }
+    .lang-option img {
+      width: 22px;
+      height: auto;
+      border-radius: 3px;
+      pointer-events: none;
     }
 
     /* ─── Mobile ──────────────────────────────────────────────── */
@@ -1350,9 +1400,9 @@
       }
       .nav-links.open a { font-size: 1.3rem; }
       .hamburger { display: flex; z-index: 1000; }
-      .lang-switcher { z-index: 1000; }
-      .lang-btn { width: 30px; height: 30px; }
-      .lang-btn img { width: 22px; }
+      .lang-dropdown { z-index: 1000; }
+      .lang-trigger img { width: 20px; }
+      .lang-panel { right: 0; }
       .carousel-slide { height: 320px; }
       .stats-bar { gap: 2rem; }
       .form-row { grid-template-columns: 1fr; }
@@ -1386,16 +1436,22 @@
     <li><a href="#contacto" class="nav-cta" data-i18n="nav_reservar">📅 Reservar</a></li>
   </ul>
 
-  <div class="lang-switcher" id="langSwitcher" aria-label="Seleccionar idioma">
-    <button class="lang-btn active" data-lang="es" title="Español" aria-label="Español">
-      <img src="https://flagcdn.com/w40/es.png" width="26" height="18" alt="Español" />
+  <div class="lang-dropdown" id="langDropdown" aria-label="Seleccionar idioma">
+    <button class="lang-trigger" id="langTrigger" aria-haspopup="listbox" aria-expanded="false">
+      <img id="langFlag" src="https://flagcdn.com/w40/es.png" width="24" height="16" alt="Español" />
+      <span class="lang-chevron">▼</span>
     </button>
-    <button class="lang-btn" data-lang="en" title="English" aria-label="English">
-      <img src="https://flagcdn.com/w40/us.png" width="26" height="18" alt="English" />
-    </button>
-    <button class="lang-btn" data-lang="fr" title="Français" aria-label="Français">
-      <img src="https://flagcdn.com/w40/fr.png" width="26" height="18" alt="Français" />
-    </button>
+    <div class="lang-panel" role="listbox" id="langPanel">
+      <button class="lang-option active" data-lang="es" data-flag="es" data-label="Español" role="option" aria-selected="true">
+        <img src="https://flagcdn.com/w40/es.png" width="22" height="15" alt="" /> Español
+      </button>
+      <button class="lang-option" data-lang="en" data-flag="us" data-label="English" role="option" aria-selected="false">
+        <img src="https://flagcdn.com/w40/us.png" width="22" height="15" alt="" /> English
+      </button>
+      <button class="lang-option" data-lang="fr" data-flag="fr" data-label="Français" role="option" aria-selected="false">
+        <img src="https://flagcdn.com/w40/fr.png" width="22" height="15" alt="" /> Français
+      </button>
+    </div>
   </div>
 
   <button class="hamburger" id="hamburger" data-i18n-aria="aria_menu" aria-label="Menú">
@@ -2560,16 +2616,44 @@
     applyAttr('data-i18n-html',        (el, v) => { el.innerHTML   = v; });
     applyAttr('data-i18n-placeholder', (el, v) => { el.placeholder = v; });
     applyAttr('data-i18n-aria',        (el, v) => { el.setAttribute('aria-label', v); });
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
+    document.querySelectorAll('.lang-option').forEach(opt => {
+      opt.classList.toggle('active', opt.dataset.lang === lang);
+      opt.setAttribute('aria-selected', opt.dataset.lang === lang);
     });
+    const active = document.querySelector('.lang-option.active');
+    if (active) {
+      const flag = active.dataset.flag;
+      const label = active.dataset.label;
+      document.getElementById('langFlag').src = `https://flagcdn.com/w40/${flag}.png`;
+      document.getElementById('langFlag').alt = label;
+    }
     currentLang = lang;
     localStorage.setItem('lang', lang);
   }
 
-  document.getElementById('langSwitcher').addEventListener('click', e => {
-    const btn = e.target.closest('.lang-btn');
-    if (btn) applyTranslations(btn.dataset.lang);
+  /* ─── Language Dropdown ──────────────────────────────────── */
+  const langDropdown = document.getElementById('langDropdown');
+  const langTrigger  = document.getElementById('langTrigger');
+  const langPanel    = document.getElementById('langPanel');
+
+  langTrigger.addEventListener('click', () => {
+    const isOpen = langDropdown.classList.toggle('open');
+    langTrigger.setAttribute('aria-expanded', isOpen);
+  });
+
+  langPanel.addEventListener('click', e => {
+    const opt = e.target.closest('.lang-option');
+    if (!opt) return;
+    applyTranslations(opt.dataset.lang);
+    langDropdown.classList.remove('open');
+    langTrigger.setAttribute('aria-expanded', 'false');
+  });
+
+  document.addEventListener('click', e => {
+    if (!langDropdown.contains(e.target)) {
+      langDropdown.classList.remove('open');
+      langTrigger.setAttribute('aria-expanded', 'false');
+    }
   });
 
   /* Apply saved/default language on load */
