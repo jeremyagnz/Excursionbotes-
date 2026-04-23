@@ -1154,6 +1154,84 @@
 
     .footer-bottom a { color: var(--aqua); text-decoration: none; }
 
+    /* ─── FAQ ────────────────────────────────────────────────── */
+    .faq-section {
+      padding: 6rem 5%;
+      background: var(--gray);
+    }
+
+    .faq-container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,201,200,.15);
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: box-shadow var(--transition);
+    }
+
+    .faq-item.open {
+      box-shadow: var(--shadow);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 1.3rem 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      gap: 1rem;
+      transition: color var(--transition);
+    }
+
+    .faq-question:hover { color: var(--aqua-dark); }
+
+    .faq-item.open .faq-question { color: var(--aqua-dark); }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      background: var(--aqua-pale);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem;
+      color: var(--aqua-dark);
+      transition: transform var(--transition), background var(--transition);
+      font-style: normal;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: var(--aqua);
+      color: var(--white);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, padding .4s ease;
+      padding: 0 1.6rem;
+    }
+
+    .faq-answer p {
+      padding-bottom: 1.3rem;
+      font-size: .93rem;
+      line-height: 1.75;
+      color: var(--text-light);
+    }
+
     /* ─── Wave SVG ────────────────────────────────────────────── */
     .wave-divider { display: block; width: 100%; overflow: hidden; line-height: 0; }
     .wave-divider svg { display: block; width: 100%; }
@@ -1266,6 +1344,7 @@
     <li><a href="#galeria">Galería</a></li>
     <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#planes">Planes</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contacto">Contacto</a></li>
     <li><a href="#contacto" class="nav-cta">📅 Reservar</a></li>
   </ul>
@@ -1780,6 +1859,99 @@
   </div>
 </section>
 
+<!-- ─── FAQ ───────────────────────────────────────────────── -->
+<section class="faq-section" id="faq">
+  <div class="section-header reveal">
+    <span class="section-tag">❓ FAQ</span>
+    <h2 class="section-title">Preguntas <span>Frecuentes</span></h2>
+    <p class="section-desc">Todo lo que necesitas saber antes de embarcarte en tu aventura.</p>
+  </div>
+
+  <div class="faq-container">
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        ¿Qué incluye el precio de cada plan?
+        <i class="faq-icon" aria-hidden="true">+</i>
+      </button>
+      <div class="faq-answer">
+        <p>El precio incluye el traslado en bote, guía especializado, equipo de seguridad (salvavidas, botiquín), y seguro de excursión. Según el plan elegido pueden incluirse también snorkel, almuerzo a bordo, bebidas y fotografías profesionales. Consulta los detalles en la sección de Planes.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        ¿Cuántas personas pueden ir en el bote?
+        <i class="faq-icon" aria-hidden="true">+</i>
+      </button>
+      <div class="faq-answer">
+        <p>La capacidad varía por plan: los paseos básicos y tours familiares admiten hasta 12 personas, el plan Premium Privado está pensado para parejas o grupos de hasta 6 personas, y el plan Corporativo puede gestionar grupos de hasta 50 personas con embarcaciones adicionales según disponibilidad.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        ¿Qué sucede si el clima es desfavorable el día de la excursión?
+        <i class="faq-icon" aria-hidden="true">+</i>
+      </button>
+      <div class="faq-answer">
+        <p>La seguridad de nuestros pasajeros es la prioridad. Si las condiciones climáticas no son seguras (vientos fuertes, tormenta o mar agitado), cancelamos o reprogramamos la excursión sin costo adicional. Te notificaremos con al menos 2 horas de anticipación y ofreceremos una nueva fecha disponible o el reembolso completo.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        ¿Con cuánta anticipación debo reservar?
+        <i class="faq-icon" aria-hidden="true">+</i>
+      </button>
+      <div class="faq-answer">
+        <p>Recomendamos reservar con al menos 48 horas de anticipación para garantizar disponibilidad, especialmente en temporada alta (verano y fines de semana). Para eventos corporativos o grupos grandes, sugerimos reservar con al menos 2 semanas de anticipación. Las reservas de último momento están sujetas a disponibilidad.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        ¿Se permiten niños a bordo?
+        <i class="faq-icon" aria-hidden="true">+</i>
+      </button>
+      <div class="faq-answer">
+        <p>¡Por supuesto! Los niños son bienvenidos en todos nuestros planes. Los menores de 3 años no pagan pasaje. Para niños menores de 12 años se requiere acompañamiento de un adulto responsable. Contamos con chalecos salvavidas en todas las tallas y nuestros guías están capacitados para atender a familias con niños pequeños.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        ¿Qué debo llevar para la excursión?
+        <i class="faq-icon" aria-hidden="true">+</i>
+      </button>
+      <div class="faq-answer">
+        <p>Te recomendamos llevar: protector solar resistente al agua, gafas de sol, gorra o sombrero, ropa ligera y cómoda, traje de baño (si planeas nadar), toalla, calzado antideslizante y agua extra. Para el tour de atardecer, una ligera chaqueta puede ser útil. El equipo de snorkel se proporciona en los planes que lo incluyen.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        ¿Aceptan pagos con tarjeta de crédito?
+        <i class="faq-icon" aria-hidden="true">+</i>
+      </button>
+      <div class="faq-answer">
+        <p>Aceptamos pagos en efectivo, transferencia bancaria y tarjetas de crédito/débito (Visa, Mastercard, American Express). Para reservar, solicitamos un anticipo del 30% y el saldo restante se cubre el día de la excursión. También puedes pagar el total por adelantado con un descuento especial del 5%.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        ¿Puedo cancelar o reprogramar mi reserva?
+        <i class="faq-icon" aria-hidden="true">+</i>
+      </button>
+      <div class="faq-answer">
+        <p>Sí. Las cancelaciones realizadas con más de 48 horas de anticipación reciben reembolso completo del anticipo. Las cancelaciones entre 24 y 48 horas reciben el 50% del anticipo. Cancelaciones con menos de 24 horas no son reembolsables, aunque puedes reprogramar tu fecha sin costo adicional. Contáctanos por WhatsApp para gestionar tu cambio.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ─── Contact ────────────────────────────────────────────── -->
 <section class="contact-section" id="contacto">
   <div class="contact-grid">
@@ -1891,6 +2063,7 @@
         <li><a href="#galeria">Galería</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#planes">Planes</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
@@ -2070,6 +2243,28 @@
     const today = new Date().toISOString().split('T')[0];
     dateInput.setAttribute('min', today);
   }
+  /* ── FAQ accordion ── */
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item   = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+
+      /* Close all open items */
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-answer').style.maxHeight = '0';
+        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      /* Open clicked item if it was closed */
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 </script>
 
 </body>
