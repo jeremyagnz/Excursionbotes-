@@ -432,3 +432,17 @@
 
   /* Apply saved/default language on load */
   applyTranslations(currentLang);
+
+
+  /* ─── License Modal ──────────────────────────────────────── */
+  const licenseModal = document.getElementById('licenseModal');
+  const openLicense  = document.getElementById('openLicense');
+  const closeLicense = document.getElementById('closeLicense');
+
+  function openModal()  { licenseModal.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeModal() { licenseModal.hidden = true;  document.body.style.overflow = ''; }
+
+  openLicense.addEventListener('click', openModal);
+  closeLicense.addEventListener('click', closeModal);
+  licenseModal.addEventListener('click', e => { if (e.target === licenseModal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !licenseModal.hidden) closeModal(); });

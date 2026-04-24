@@ -1143,6 +1143,68 @@
 
     .footer-bottom a { color: var(--aqua); text-decoration: none; }
 
+    .license-btn {
+      background: none;
+      border: none;
+      color: var(--aqua);
+      cursor: pointer;
+      font-size: inherit;
+      padding: 0;
+      text-decoration: underline;
+      font-family: inherit;
+    }
+    .license-btn:hover { opacity: .8; }
+
+    /* ─── License Modal ──────────────────────────────────────── */
+    .license-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 1rem;
+    }
+    .license-modal-overlay[hidden] { display: none; }
+    .license-modal-box {
+      background: var(--dark, #1a1a2e);
+      border: 1px solid rgba(0,173,181,.3);
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 640px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      color: var(--light, #eee);
+    }
+    .license-modal-box h2 {
+      margin: 0 0 1rem;
+      font-size: 1.2rem;
+      color: var(--aqua, #00ADB5);
+    }
+    .license-text {
+      white-space: pre-wrap;
+      font-size: .82rem;
+      line-height: 1.7;
+      margin: 0;
+      font-family: inherit;
+      color: var(--light, #eee);
+    }
+    .license-modal-close {
+      position: absolute;
+      top: .8rem;
+      right: .8rem;
+      background: none;
+      border: none;
+      color: var(--aqua, #00ADB5);
+      font-size: 1.1rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .license-modal-close:hover { opacity: .7; }
+
     /* ─── FAQ ────────────────────────────────────────────────── */
     .faq-section {
       padding: 6rem 5%;
