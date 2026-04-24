@@ -1,0 +1,68 @@
+name: Create First Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Create v1.0.0 release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check if release already exists
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            try {
+              await github.rest.repos.getReleaseByTag({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                tag: 'v1.0.0',
+              });
+              core.setOutput('exists', 'true');
+            } catch (e) {
+              core.setOutput('exists', 'false');
+            }
+
+      - name: Create release v1.0.0
+        if: steps.check.outputs.exists == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.createRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: 'v1.0.0',
+              target_commitish: 'main',
+              name: 'v1.0.0 — Lanzamiento inicial 🚢',
+              body: `## 🎉 Primer release de ExcursionBotes
+
+            ### ✨ Características incluidas
+
+            - 🎠 **Carrusel de fotos** interactivo con swipe táctil y autoplay
+            - 📊 **Estadísticas animadas** (clientes, años de experiencia, rutas y satisfacción)
+            - 🧭 **Sección Nosotros** con valores, misión y características de la empresa
+            - 🗺️ **6 Paquetes**: Básico, Aventura Marina, Premium, Atardecer, Familiar y Corporativo
+            - 💬 **Testimonios** de clientes reales
+            - 📬 **Formulario de reserva** completo integrado en la página
+            - 🌐 **Redes sociales**: Instagram, Facebook, WhatsApp, TikTok y YouTube
+            - 💬 **Botón flotante de WhatsApp** siempre visible
+            - 📱 **100% Responsive** para móvil, tablet y escritorio
+
+            ### 🛠️ Tecnologías
+
+            - HTML5, CSS3, JavaScript (ES6+)
+            - Google Fonts (Poppins)
+            - Netlify hosting & CI/CD
+
+            ### 🌐 Sitio en producción
+
+            https://excursionbotes.netlify.app`,
+              draft: false,
+              prerelease: false,
+            });
+            console.log('Release v1.0.0 created successfully!');
