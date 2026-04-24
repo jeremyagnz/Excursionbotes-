@@ -1,58 +1,59 @@
 # ⛵ ExcursionBotes
 
-Página informativa y de reservas para **Excursiones en Bote** — diseñada con UI/UX moderno en tono Aqua.
+> Sitio web informativo y de reservas para **Excursiones en Bote** — experiencias acuáticas únicas para toda la familia.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_NETLIFY_SITE_ID/deploy-status)](https://app.netlify.com/sites/excursionbotes/deploys)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![License: MIT](https://img.shields.io/badge/License-MIT-00C9C8?style=flat)
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jeremyagnz/Excursionbotes-)
 
 ---
 
-## 🎯 ¿Qué incluye?
+## 📋 Tabla de contenidos
 
-- 🎠 **Carrusel de fotos** interactivo con swipe táctil y autoplay
-- 📊 **Barra de estadísticas** animada (clientes, años, rutas, satisfacción)
-- 🧭 **Sección Nosotros** con características y valores de la empresa
-- 🗺️ **6 Planes / Paquetes**: Básico, Aventura Marina, Premium, Atardecer, Familiar y Corporativo
-- 💬 **Testimonios** de clientes reales
-- 📬 **Formulario de reserva** completo
-- 🌐 **Redes sociales**: Instagram, Facebook, WhatsApp, TikTok, YouTube
-- 💬 **Botón flotante de WhatsApp**
-- 📱 **100% Responsive** (móvil, tablet, escritorio)
-- 🎨 **Tema Aqua** (`#00C9C8`) con animaciones suaves
+- [Descripción](#-descripción)
+- [Características](#-características)
+- [Tecnologías](#-tecnologías)
+- [Estructura del proyecto](#-estructura-del-proyecto)
+- [Despliegue en Netlify](#-despliegue-en-netlify)
+- [URL en producción](#-url-en-producción)
+- [Contribuir](#-contribuir)
+- [Licencia](#-licencia)
 
 ---
 
-## 🚀 Despliegue en Netlify
+## 📖 Descripción
 
-### Opción A — Un clic (recomendado)
+**ExcursionBotes** es una landing page de una sola página (*single-page*) diseñada con una interfaz moderna en tono Aqua (`#00C9C8`). Permite a los visitantes conocer los paquetes disponibles, leer testimonios de clientes y realizar una reserva directamente desde el sitio.
 
-Presiona el botón **"Deploy to Netlify"** de arriba. Netlify clonará el repo y lo publicará automáticamente.
+---
 
-### Opción B — Manual
+## ✨ Características
 
-1. Entra a [app.netlify.com](https://app.netlify.com) y selecciona **"Add new site → Import an existing project"**.
-2. Conecta tu cuenta de GitHub y elige el repo `jeremyagnz/Excursionbotes-`.
-3. Configura:
-   | Campo | Valor |
-   |-------|-------|
-   | **Branch to deploy** | `main` |
-   | **Base directory** | *(vacío)* |
-   | **Build command** | *(vacío)* |
-   | **Publish directory** | `.` |
-4. Haz clic en **"Deploy site"**.
+| Sección | Descripción |
+|---------|-------------|
+| 🎠 **Carrusel de fotos** | Interactivo con swipe táctil y autoplay |
+| 📊 **Estadísticas animadas** | Clientes, años de experiencia, rutas y satisfacción |
+| 🧭 **Nosotros** | Valores, misión y características de la empresa |
+| 🗺️ **6 Paquetes** | Básico, Aventura Marina, Premium, Atardecer, Familiar y Corporativo |
+| 💬 **Testimonios** | Reseñas reales de clientes |
+| 📬 **Formulario de reserva** | Formulario completo integrado en la página |
+| 🌐 **Redes sociales** | Instagram, Facebook, WhatsApp, TikTok y YouTube |
+| 💬 **WhatsApp flotante** | Botón de acceso rápido siempre visible |
+| 📱 **100% Responsive** | Optimizado para móvil, tablet y escritorio |
 
-El archivo `netlify.toml` ya incluye toda la configuración necesaria (redirects, headers de seguridad, caché).
+---
 
-### Ver el Deploy Preview
+## 🛠️ Tecnologías
 
-Cada Pull Request genera automáticamente una **URL de preview** única:
-
-```
-https://deploy-preview-<PR_NUMBER>--excursionbotes.netlify.app
-```
-
-Netlify publica un comentario con el enlace directo en cada PR. 🎉
+- **HTML5** — estructura semántica
+- **CSS3** — variables, animaciones, Flexbox y Grid
+- **JavaScript (ES6+)** — carrusel, animaciones de estadísticas y formulario
+- **Google Fonts** — tipografía Poppins
+- **Netlify** — hosting y CI/CD
 
 ---
 
@@ -60,27 +61,70 @@ Netlify publica un comentario con el enlace directo en cada PR. 🎉
 
 ```
 Excursionbotes-/
-├── index.html      # Página principal (todo en un archivo)
-├── netlify.toml    # Configuración de Netlify
+├── index.html       # Página principal (HTML + CSS + JS en un solo archivo)
+├── netlify.toml     # Configuración de Netlify (redirects, headers, caché)
 └── README.md
 ```
 
-## 🌐 URL en producción
+---
 
-Una vez desplegado, tu sitio estará disponible en:
+## 🚀 Despliegue en Netlify
+
+### Opción A — Un clic (recomendado)
+
+Haz clic en el botón **"Deploy to Netlify"** al inicio de este README. Netlify clonará el repositorio y publicará el sitio automáticamente.
+
+### Opción B — Despliegue manual
+
+1. Accede a [app.netlify.com](https://app.netlify.com) y selecciona **"Add new site → Import an existing project"**.
+2. Conecta tu cuenta de GitHub y elige el repositorio `jeremyagnz/Excursionbotes-`.
+3. Usa la siguiente configuración:
+
+   | Campo | Valor |
+   |-------|-------|
+   | **Branch to deploy** | `main` |
+   | **Base directory** | *(vacío)* |
+   | **Build command** | *(vacío)* |
+   | **Publish directory** | `.` |
+
+4. Haz clic en **"Deploy site"**.
+
+> El archivo `netlify.toml` ya incluye redirects, headers de seguridad y políticas de caché — no se requiere configuración adicional.
+
+### Deploy Previews
+
+Cada Pull Request genera automáticamente una URL de preview única:
+
+```
+https://deploy-preview-<PR_NUMBER>--excursionbotes.netlify.app
+```
+
+Netlify publica el enlace directamente en el PR como comentario. 🎉
+
+---
+
+## 🌐 URL en producción
 
 ```
 https://excursionbotes.netlify.app
 ```
 
-> Puedes cambiar el nombre del sitio en **Site settings → General → Site name** dentro de Netlify.
+> Para cambiar el nombre del sitio, ve a **Site settings → General → Site name** en Netlify.
 
 ---
 
 ## 🤝 Contribuir
 
-Las contribuciones son bienvenidas. Abre un issue o un pull request.
+¡Las contribuciones son bienvenidas! Para contribuir:
+
+1. Haz un fork del repositorio.
+2. Crea una rama con tu mejora: `git checkout -b feature/mi-mejora`.
+3. Realiza tus cambios y haz commit: `git commit -m "feat: descripción del cambio"`.
+4. Sube tu rama: `git push origin feature/mi-mejora`.
+5. Abre un **Pull Request** describiendo los cambios realizados.
+
+---
 
 ## 📝 Licencia
 
-MIT — libre de usar y modificar.
+Distribuido bajo la licencia **MIT**. Consulta el archivo [`LICENSE`](LICENSE) para más información.
