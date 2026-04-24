@@ -220,6 +220,7 @@
       footer_brand_desc:'Desde 2015 creando experiencias acuáticas únicas e inolvidables para aventureros de todo el mundo.',
       footer_explore:'Explorar', footer_plans:'Planes', footer_social:'Redes',
       footer_copy:'© 2025 ExcursionBotes. Todos los derechos reservados.',
+      footer_license:'Ver licencia',
       footer_made:'Hecho con 💙 y', footer_sea:'mucho mar',
       aria_menu:'Menú', aria_prev:'Anterior', aria_next:'Siguiente', aria_whatsapp:'WhatsApp', aria_backtop:'Volver arriba'
     },
@@ -295,6 +296,7 @@
       footer_brand_desc:'Since 2015 creating unique and unforgettable aquatic experiences for adventurers from around the world.',
       footer_explore:'Explore', footer_plans:'Plans', footer_social:'Social',
       footer_copy:'© 2025 ExcursionBotes. All rights reserved.',
+      footer_license:'View license',
       footer_made:'Made with 💙 and', footer_sea:'lots of sea',
       aria_menu:'Menu', aria_prev:'Previous', aria_next:'Next', aria_whatsapp:'WhatsApp', aria_backtop:'Back to top'
     },
@@ -370,6 +372,7 @@
       footer_brand_desc:'Depuis 2015, nous créons des expériences aquatiques uniques et inoubliables pour les aventuriers du monde entier.',
       footer_explore:'Explorer', footer_plans:'Forfaits', footer_social:'Réseaux',
       footer_copy:'© 2025 ExcursionBotes. Tous droits réservés.',
+      footer_license:'Voir la licence',
       footer_made:'Fait avec 💙 et', footer_sea:'beaucoup de mer',
       aria_menu:'Menu', aria_prev:'Précédent', aria_next:'Suivant', aria_whatsapp:'WhatsApp', aria_backtop:'Retour en haut'
     }
