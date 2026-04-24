@@ -5,7 +5,7 @@
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![License: MIT](https://img.shields.io/badge/License-MIT-00C9C8?style=flat)
+![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red?style=flat)
 
 
 ---
@@ -125,4 +125,4 @@ https://excursionbotes.netlify.app
 
 ## 📝 Licencia
 
-Distribuido bajo la licencia **MIT**. Consulta el archivo [`LICENSE`](LICENSE) para más información.
+Distribuido bajo una **licencia propietaria — Todos los derechos reservados**. Consulta el archivo [`LICENSE`](LICENSE) para más información.
