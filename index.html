@@ -792,7 +792,7 @@
   <hr class="footer-divider" />
 
   <div class="footer-bottom">
-    <p data-i18n="footer_copy">© 2025 ExcursionBotes. Todos los derechos reservados.</p>
+    <p><span data-i18n="footer_copy">© 2025 ExcursionBotes. Todos los derechos reservados.</span> <button class="license-btn" id="openLicense" data-i18n="footer_license">Ver licencia</button></p>
     <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
       <p><span data-i18n="footer_made">Hecho con 💙 y</span> <a href="#inicio" data-i18n="footer_sea">mucho mar</a></p>
       <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer"
@@ -814,6 +814,33 @@
    class="float-wa" target="_blank" rel="noopener noreferrer" data-i18n-aria="aria_whatsapp" aria-label="WhatsApp">💬</a>
 
 <a href="#inicio" class="back-top" id="backTop" data-i18n-aria="aria_backtop" aria-label="Volver arriba">↑</a>
+
+<!-- ─── License Modal ────────────────────────────────────────── -->
+<div class="license-modal-overlay" id="licenseModal" role="dialog" aria-modal="true" aria-labelledby="licenseModalTitle" hidden>
+  <div class="license-modal-box">
+    <button class="license-modal-close" id="closeLicense" aria-label="Cerrar">✕</button>
+    <h2 id="licenseModalTitle">MIT License</h2>
+    <pre class="license-text">Copyright (c) 2026 Jeremy Arias &amp; Enmanuel Delance
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</pre>
+  </div>
+</div>
 
 <!-- ─── JavaScript ─────────────────────────────────────────── -->
 <script src="script.js"></script>
