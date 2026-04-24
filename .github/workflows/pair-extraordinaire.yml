@@ -1,0 +1,69 @@
+name: 🤝 Pair Extraordinaire Helper
+
+on:
+  workflow_dispatch:
+    inputs:
+      coauthor_name:
+        description: 'Nombre del co-autor (para Co-authored-by)'
+        required: false
+        default: 'Copilot'
+      coauthor_email:
+        description: 'Email del co-autor'
+        required: false
+        default: 'copilot@github.com'
+
+jobs:
+  create-coauthored-pr:
+    name: Crear PR con co-autoría
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar git
+        run: |
+          git config user.name "jeremyagnz"
+          git config user.email "jeremyagnz@users.noreply.github.com"
+
+      - name: Crear rama y commit co-authored
+        run: |
+          BRANCH="pair-extraordinaire-$(date +%s)"
+          git checkout -b "$BRANCH"
+
+          # Pequeño cambio: actualizar marca de tiempo en README
+          echo "" >> README.md
+          echo "<!-- last-coauthored: $(date -u +"%Y-%m-%dT%H:%M:%SZ") -->" >> README.md
+
+          git add README.md
+          git commit -m "docs: actualización co-authored
+
+          Co-authored-by: ${{ inputs.coauthor_name }} <${{ inputs.coauthor_email }}>"
+
+          git push origin "$BRANCH"
+          echo "BRANCH=$BRANCH" >> $GITHUB_ENV
+
+      - name: Abrir Pull Request
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const branch = process.env.BRANCH;
+            const pr = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🤝 Co-authored update — Pair Extraordinaire',
+              body: `## 🤝 Pair Extraordinaire
+
+            Este PR fue creado con un commit co-authored para desbloquear el achievement **Pair Extraordinaire** en GitHub.
+
+            **¿Cómo obtener el achievement?**
+            1. Mergea este PR ✅
+            2. GitHub detectará el commit \`Co-authored-by:\` y otorgará el logro a ambos autores.
+
+            > ⚠️ El co-autor también necesita tener una cuenta de GitHub válida para que el achievement se acredite a los dos.`,
+              head: branch,
+              base: 'main',
+            });
+            console.log(`PR creado: ${pr.data.html_url}`);

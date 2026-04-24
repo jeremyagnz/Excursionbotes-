@@ -20,6 +20,8 @@
 - [URL en producción](#-url-en-producción)
 - [Contribuir](#-contribuir)
 - [Licencia](#-licencia)
+- [⭐ Dale una estrella](#-te-gusta-el-proyecto)
+- [🏆 Guía de GitHub Achievements](#-github-achievements--guía-rápida)
 
 ---
 
@@ -126,3 +128,38 @@ https://excursionbotes.netlify.app
 ## 📝 Licencia
 
 Distribuido bajo una **licencia propietaria — Todos los derechos reservados**. Consulta el archivo [`LICENSE`](LICENSE) para más información.
+
+---
+
+## ⭐ ¿Te gusta el proyecto?
+
+Si este proyecto te fue útil, ¡dale una estrella! ⭐ Ayuda a que más personas lo descubran y contribuye al achievement **Starstruck** en el perfil de GitHub.
+
+[![GitHub stars](https://img.shields.io/github/stars/jeremyagnz/Excursionbotes-?style=social)](https://github.com/jeremyagnz/Excursionbotes-/stargazers)
+
+---
+
+## 🏆 GitHub Achievements — Guía rápida
+
+Este repositorio incluye workflows automáticos para ayudar a desbloquear varios achievements de GitHub:
+
+| Achievement | Cómo obtenerlo | Workflow / Acción |
+|-------------|----------------|-------------------|
+| ⚡ **Quickdraw** | Cierra un issue en menos de 5 min desde que lo abriste | Abre un issue con el template [Quickdraw](.github/ISSUE_TEMPLATE/quickdraw.yml) — se cerrará solo |
+| 🦈 **Pull Shark** | Mergea 2+ PRs (x2=16, x3=128, x4=1024) | Ejecuta el workflow **Pull Shark Helper** en Actions y mergea el PR generado |
+| 🤝 **Pair Extraordinaire** | Mergea un PR con commit `Co-authored-by:` | Ejecuta el workflow **Pair Extraordinaire Helper** en Actions y mergea el PR |
+| 🎱 **YOLO** | Mergea un PR sin solicitar ningún review | Simplemente mergea cualquier PR sin agregar reviewers |
+| ❤️ **Heart On Your Sleeve** | Reacciona con ❤️ a un issue, PR o discussion | Abre cualquier issue/PR y reacciona con ❤️ |
+| ⭐ **Starstruck** | Consigue 16+ estrellas en un repositorio tuyo | Comparte este repo y pide estrellas |
+| 🧠 **Galaxy Brain** | Que tu respuesta en Discussions sea marcada como aceptada | Activa Discussions en Settings y responde preguntas |
+| 🪄 **Open Sourcerer** | Que tus PRs sean mergeados en repos públicos de otros | Contribuye a otros repositorios open source |
+
+### ▶️ Cómo usar los workflows de achievements
+
+1. Ve a la pestaña **Actions** del repositorio.
+2. Selecciona el workflow que quieres ejecutar (Pull Shark Helper o Pair Extraordinaire Helper).
+3. Haz clic en **"Run workflow"** → **"Run workflow"**.
+4. Espera a que se cree el PR automáticamente.
+5. Ve a **Pull Requests** y mergea el PR generado.
+
+> 💡 **Tip YOLO:** Al mergear un PR sin agregar reviewers, también desbloqueas el achievement **YOLO** automáticamente.

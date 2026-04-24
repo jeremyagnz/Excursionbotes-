@@ -1,0 +1,42 @@
+name: ⚡ Quickdraw Helper
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  quickdraw:
+    name: Cerrar issue rápido (< 5 min)
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'quickdraw'
+    permissions:
+      issues: write
+    steps:
+      - name: Cerrar issue automáticamente
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const createdAt = new Date(issue.created_at);
+            const now = new Date();
+            const diffMs = now - createdAt;
+            const diffMin = diffMs / 1000 / 60;
+
+            console.log(`Issue creado hace ${diffMin.toFixed(2)} minutos.`);
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: `⚡ **Quickdraw!**\n\nEste issue fue cerrado en **${diffMin.toFixed(2)} minutos** desde su creación.\n\n> Si fue cerrado en menos de 5 minutos, ¡deberías recibir el achievement **Quickdraw** 🔫 en tu perfil de GitHub!`,
+            });
+
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              state: 'closed',
+              state_reason: 'completed',
+            });
+
+            console.log(`Issue #${issue.number} cerrado en ${diffMin.toFixed(2)} minutos.`);

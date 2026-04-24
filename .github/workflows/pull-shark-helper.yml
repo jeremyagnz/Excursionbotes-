@@ -1,0 +1,86 @@
+name: 🦈 Pull Shark Helper
+
+on:
+  workflow_dispatch:
+    inputs:
+      change_type:
+        description: 'Tipo de mejora a aplicar'
+        required: true
+        default: 'docs'
+        type: choice
+        options:
+          - docs
+          - style
+          - chore
+
+jobs:
+  create-pr:
+    name: Generar PR para Pull Shark
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar git
+        run: |
+          git config user.name "jeremyagnz"
+          git config user.email "jeremyagnz@users.noreply.github.com"
+
+      - name: Crear cambio y PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { execSync } = require('child_process');
+            const type = '${{ inputs.change_type }}';
+            const ts = Date.now();
+            const branch = `pull-shark-${type}-${ts}`;
+
+            execSync(`git checkout -b ${branch}`);
+
+            // Generar un cambio pequeño según el tipo
+            const fs = require('fs');
+            const readmePath = 'README.md';
+            let content = fs.readFileSync(readmePath, 'utf8');
+
+            // Eliminar marcas previas y agregar una nueva
+            content = content.replace(/\n<!-- pull-shark-ts: \d+ -->\n/g, '');
+            content += `\n<!-- pull-shark-ts: ${ts} -->\n`;
+            fs.writeFileSync(readmePath, content);
+
+            execSync('git add README.md');
+            execSync(`git commit -m "${type}: automated improvement #${ts}"`);
+            execSync(`git push origin ${branch}`);
+
+            const titles = {
+              docs: '📝 Mejora de documentación',
+              style: '💅 Mejora de estilos',
+              chore: '🔧 Mantenimiento del repositorio',
+            };
+
+            const pr = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `${titles[type]} — Pull Shark #${ts}`,
+              body: `## 🦈 Pull Shark
+
+            PR generado automáticamente para contribuir al achievement **Pull Shark** 🦈.
+
+            **¿Cómo obtener Pull Shark?**
+            - Mergea **2 PRs** → Pull Shark 🦈
+            - Mergea **16 PRs** → Pull Shark × 2
+            - Mergea **128 PRs** → Pull Shark × 3
+            - Mergea **1024 PRs** → Pull Shark × 4
+
+            **Instrucciones:**
+            1. Revisa que el cambio sea correcto ✅
+            2. Mergea este PR directamente (no necesitas review — eso también da **YOLO** 🎱)
+
+            > 💡 Tip: Mergear sin solicitar review también desbloquea el achievement **YOLO**.`,
+              head: branch,
+              base: 'main',
+            });
+
+            console.log(`PR creado: ${pr.data.html_url}`);

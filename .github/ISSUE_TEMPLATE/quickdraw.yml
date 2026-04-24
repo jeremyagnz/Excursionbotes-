@@ -1,0 +1,26 @@
+name: ⚡ Quickdraw
+description: Issue de prueba — se cerrará automáticamente en segundos para el achievement Quickdraw
+title: '[Quickdraw] '
+labels:
+  - quickdraw
+assignees:
+  - jeremyagnz
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚡ Instrucciones para el achievement Quickdraw
+
+        1. Completa el título del issue
+        2. Haz clic en **Submit new issue**
+        3. El workflow cerrará este issue automáticamente en segundos
+        4. Si se cierra en **menos de 5 minutos**, recibirás el achievement **Quickdraw 🔫**
+
+  - type: input
+    id: descripcion
+    attributes:
+      label: Descripción
+      description: Escribe cualquier cosa (es solo para el achievement)
+      placeholder: 'Ej: Prueba de Quickdraw achievement'
+    validations:
+      required: true
